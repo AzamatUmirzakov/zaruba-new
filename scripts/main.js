@@ -1,12 +1,18 @@
 // базовые стили для уведомлений
 let popup = document.querySelector(".popup-notification");
 let form = document.querySelector(".main-form");
-popup.style.top =
-  form.getBoundingClientRect().top +
-  window.pageYOffset -
-  popup.offsetHeight -
-  48 +
-  "px";
+setInterval(() => {
+  if (!window.matchMedia("(max-width: 375px").matches) {
+    popup.style.top =
+      form.getBoundingClientRect().top +
+      window.pageYOffset -
+      popup.offsetHeight -
+      48 +
+      "px";
+  } else {
+    popup.style.top = "120px";
+  }
+}, 100);
 popup.dataset.animating = false;
 
 // функция для показа уведомлений
@@ -21,7 +27,7 @@ function show_popup(form, ...content) {
     popup.style.minWidth = form.offsetWidth + "px";
     popup.dataset.animating = "true";
     setTimeout(() => {
-      popup.style.right = "-100%";
+      popup.style.right = "-200%";
       popup.dataset.animating = "false";
     }, 3000);
   }
@@ -51,19 +57,19 @@ form.addEventListener("submit", (event) => {
 });
 
 // оверлей для поля с паролем, чтобы вместо обычных точек показывалось "*"
-let input_overlay = document.querySelector(".input-overlay");
-input_overlay.addEventListener("click", () => {
-  input_overlay.previousElementSibling.focus();
-  input_overlay.value = Array(input_overlay.previousElementSibling.value.length)
-    .fill("*")
-    .join("");
-});
+// let input_overlay = document.querySelector(".input-overlay");
+// input_overlay.addEventListener("click", () => {
+//   input_overlay.previousElementSibling.focus();
+//   input_overlay.value = Array(input_overlay.previousElementSibling.value.length)
+//     .fill("*")
+//     .join("");
+// });
 
-input_overlay.previousElementSibling.addEventListener("input", () => {
-  input_overlay.value = Array(input_overlay.previousElementSibling.value.length)
-    .fill("*")
-    .join("");
-});
+// input_overlay.previousElementSibling.addEventListener("input", () => {
+//   input_overlay.value = Array(input_overlay.previousElementSibling.value.length)
+//     .fill("*")
+//     .join("");
+// });
 
 // функционал кнопок для показа форм авторизации и восстановления пароля
 let forgot_password_button = document.querySelector(".forgot-password-button");

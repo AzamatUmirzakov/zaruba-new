@@ -86,6 +86,7 @@ body {
       line-height: 120%;
       @include stroke(#000, 2px, 1px);
       filter: drop-shadow(0px 4px 0px rgba(0, 0, 0, 0.25));
+      font-weight: bold;
       img {
         max-height: 75px;
         max-width: 75px;
@@ -108,7 +109,7 @@ body {
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  right: -100%;
+  right: -200%;
   transition: all 0.6s ease-in-out;
 }
 
@@ -187,6 +188,7 @@ main {
         font-size: 18px;
         color: #96948b;
         text-shadow: 0px 1px 0px #000000;
+        cursor: pointer;
       }
     }
     .password-input {
@@ -197,14 +199,14 @@ main {
       input {
         margin-bottom: 0;
       }
-      .input-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        margin-bottom: 0;
-        z-index: 100;
-      }
+      // .input-overlay {
+      //   position: absolute;
+      //   bottom: 0;
+      //   left: 0;
+      //   width: 100%;
+      //   margin-bottom: 0;
+      //   z-index: 100;
+      // }
     }
   }
   .forgot-password-form {
@@ -240,3 +242,5 @@ main {
     }
   }
 }
+
+@import "media";

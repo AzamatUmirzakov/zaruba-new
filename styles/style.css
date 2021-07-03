@@ -65,6 +65,7 @@ body {
   line-height: 120%;
   text-shadow: 2px 1px 0 #000, 1.8478px 1.7654px 0 #000, 1.4142px 2.4142px 0 #000, 0.7654px 2.8478px 0 #000, 0px 3px 0 #000, -0.7654px 2.8478px 0 #000, -1.4142px 2.4142px 0 #000, -1.8478px 1.7654px 0 #000, -2px 1px 0 #000, -1.8478px 0.2346px 0 #000, -1.4142px -0.4142px 0 #000, -0.7654px -0.8478px 0 #000, 0px -1px 0 #000, 0.7654px -0.8478px 0 #000, 1.4142px -0.4142px 0 #000, 1.8478px 0.2346px 0 #000;
   filter: drop-shadow(0px 4px 0px rgba(0, 0, 0, 0.25));
+  font-weight: bold;
 }
 .page-header .header-nav a img {
   max-height: 75px;
@@ -85,7 +86,7 @@ body {
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  right: -100%;
+  right: -200%;
   transition: all 0.6s ease-in-out;
 }
 
@@ -167,6 +168,7 @@ main form .form-buttons button:last-of-type {
   font-size: 18px;
   color: #96948b;
   text-shadow: 0px 1px 0px #000000;
+  cursor: pointer;
 }
 main form .password-input {
   display: flex;
@@ -176,14 +178,6 @@ main form .password-input {
 }
 main form .password-input input {
   margin-bottom: 0;
-}
-main form .password-input .input-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  margin-bottom: 0;
-  z-index: 100;
 }
 main .forgot-password-form {
   display: none;
@@ -216,6 +210,78 @@ main .forgot-password-form {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 375px) {
+  .center {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .popup-notification {
+    padding: 24px !important;
+    width: 330px;
+    font-size: 14px !important;
+    position: fixed !important;
+  }
+
+  .page-header {
+    padding: 12px 0 25px 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  main .main-text {
+    display: none;
+  }
+  main .main-form,
+main .forgot-password-form {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 100%;
+    padding: 45px 38px 48px 38px;
+    margin-bottom: 48px;
+  }
+  main .main-form h1,
+main .forgot-password-form h1 {
+    margin-bottom: 24px;
+  }
+  main .main-form label,
+main .forgot-password-form label {
+    font-size: 16px;
+  }
+  main .main-form input:not(:last-of-type),
+main .forgot-password-form input:not(:last-of-type) {
+    margin-bottom: 24px;
+  }
+  main .main-form .password-input,
+main .forgot-password-form .password-input {
+    margin-bottom: 24px;
+  }
+  main .main-form .form-buttons,
+main .forgot-password-form .form-buttons {
+    flex-direction: column;
+  }
+  main .main-form .form-buttons .submit-button,
+main .forgot-password-form .form-buttons .submit-button {
+    margin-bottom: 24px;
+  }
+  main .forgot-password-form {
+    margin-bottom: 135px;
+  }
+
+  .page-footer .outer-text {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px !important;
+  }
+  .page-footer .outer-text a:not(:last-of-type) {
+    margin-bottom: 11px;
+  }
+  .page-footer .social-links {
+    padding: 24px 0 !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
