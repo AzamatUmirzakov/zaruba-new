@@ -15,6 +15,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .center {
@@ -54,6 +55,9 @@ main {
 }
 main .main-inside {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 main .main-inside img {
   position: absolute;
@@ -113,6 +117,59 @@ main .main-inside p {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 375px) {
+  body {
+    background-image: url("../assets/background-adaptive.svg");
+    background-position: center center;
+  }
+
+  .center {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .page-header {
+    margin-bottom: 0px;
+    padding-bottom: 0;
+  }
+
+  main {
+    margin-bottom: 60px;
+  }
+  main .main-inside img {
+    max-width: 120px;
+    max-height: 260px;
+    top: 80px;
+    left: calc(50% - 60px);
+  }
+  main .main-inside h1 {
+    font-size: 200px;
+    margin-bottom: 0;
+  }
+  main .main-inside h2 {
+    font-size: 36px;
+    line-height: 100%;
+    text-shadow: 5px 2px 0 #000, 4.6195px 3.9135px 0 #000, 3.5355px 5.5355px 0 #000, 1.9135px 6.6195px 0 #000, 0px 7px 0 #000, -1.9135px 6.6195px 0 #000, -3.5355px 5.5355px 0 #000, -4.6195px 3.9135px 0 #000, -5px 2px 0 #000, -4.6195px 0.0865px 0 #000, -3.5355px -1.5355px 0 #000, -1.9135px -2.6195px 0 #000, 0px -3px 0 #000, 1.9135px -2.6195px 0 #000, 3.5355px -1.5355px 0 #000, 4.6195px 0.0865px 0 #000;
+  }
+  main .main-inside p {
+    font-size: 16px;
+  }
+
+  .page-footer .outer-text {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .page-footer .outer-text a:not(:last-of-type) {
+    margin-bottom: 11px;
+  }
+  .page-footer .social-links {
+    padding: 24px 0 !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

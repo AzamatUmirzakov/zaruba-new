@@ -1,0 +1,52 @@
+@media (max-width: 375px) {
+  body {
+    background-image: url("../assets/background-adaptive.svg");
+    background-position: center center;
+  }
+  .center {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  .page-header {
+    margin-bottom: 0px;
+    padding-bottom: 0;
+  }
+  main {
+    margin-bottom: 60px;
+    .main-inside {
+      img {
+        max-width: 120px;
+        max-height: 260px;
+        top: 80px;
+        left: calc(50% - 60px);
+      }
+      h1 {
+        font-size: 200px;
+        margin-bottom: 0;
+      }
+      h2 {
+        font-size: 36px;
+        line-height: 100%;
+        @include stroke(#000, 5px, 2);
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+  .page-footer {
+    .outer-text {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+      a:not(:last-of-type) {
+        margin-bottom: 11px;
+      }
+    }
+    .social-links {
+      padding: 24px 0 !important;
+    }
+  }
+}
