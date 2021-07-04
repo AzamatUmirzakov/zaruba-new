@@ -41,19 +41,22 @@ function is_valid_authorization(input) {
 // проверка данных перед авторизацией
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  if (
-    !is_valid_authorization({
-      nickname: form.nickname.value,
-      password: form.password.value,
-    })
-  ) {
-    let img = document.createElement("img");
-    img.src = "assets/invalid.svg";
-    show_popup(form, "Неверно введен никнейм или пароль", img);
-    for (let input of form.querySelectorAll("input")) {
-      input.style.borderColor = "#F91212";
-    }
-  }
+  // if (
+  //   !is_valid_authorization({
+  //     nickname: form.nickname.value,
+  //     password: form.password.value,
+  //   })
+  // ) {
+  //   let img = document.createElement("img");
+  //   img.src = "assets/invalid.svg";
+  //   show_popup(form, "Неверно введен никнейм или пароль", img);
+  //   for (let input of form.querySelectorAll("input")) {
+  //     input.style.borderColor = "#F91212";
+  //   }
+  // }
+  let link = document.createElement("a");
+  link.href = "https://zaruba-sales-profile.vercel.app/";
+  link.click();
 });
 
 // оверлей для поля с паролем, чтобы вместо обычных точек показывалось "*"
