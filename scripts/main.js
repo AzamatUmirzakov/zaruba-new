@@ -55,7 +55,7 @@ form.addEventListener("submit", (event) => {
   //   }
   // }
   let link = document.createElement("a");
-  link.href = "https://zaruba-sales-profile.vercel.app/";
+  link.href = "profile/index.html";
   link.click();
 });
 

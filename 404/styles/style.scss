@@ -1,0 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background: linear-gradient(180deg, #edbe16 0%, #eda00b 100%);
+}
+
+body {
+  background: url("../assets/background-line.png");
+  background-repeat: no-repeat;
+  background-position: center 70px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "Balsamiq Sans Regular";
+  src: url("../assets/fonts/BalsamiqSans-Regular.ttf");
+}
+
+@mixin stroke($color, $width, $offset) {
+  text-shadow: ($width * 1) ($width * 0 + $offset) 0 $color,
+    ($width * 0.9239) ($width * 0.3827 + $offset) 0 $color,
+    ($width * 0.7071) ($width * 0.7071 + $offset) 0 $color,
+    ($width * 0.3827) ($width * 0.9239 + $offset) 0 $color,
+    ($width * 0) ($width * 1 + $offset) 0 $color,
+    ($width * -0.3827) ($width * 0.9239 + $offset) 0 $color,
+    ($width * -0.7071) ($width * 0.7071 + $offset) 0 $color,
+    ($width * -0.9239) ($width * 0.3827 + $offset) 0 $color,
+    ($width * -1) ($width * 0 + $offset) 0 $color,
+    ($width * -0.9239) ($width * -0.3827 + $offset) 0 $color,
+    ($width * -0.7071) ($width * -0.7071 + $offset) 0 $color,
+    ($width * -0.3827) ($width * -0.9239 + $offset) 0 $color,
+    ($width * 0) ($width * -1 + $offset) 0 $color,
+    ($width * 0.3827) ($width * -0.9239 + $offset) 0 $color,
+    ($width * 0.7071) ($width * -0.7071 + $offset) 0 $color,
+    ($width * 0.9239) ($width * -0.3827 + $offset) 0 $color;
+}
+
+.page-header {
+  padding: 25px 0 20px 0;
+  margin-bottom: 70px;
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      font-family: "Balsamiq Sans Regular";
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 120%;
+      @include stroke(#000, 2px, 1px);
+      filter: drop-shadow(0px 4px 0px rgba(0, 0, 0, 0.25));
+      img {
+        max-height: 75px;
+        max-width: 75px;
+      }
+    }
+  }
+}
+
+main {
+  margin-bottom: 210px;
+  .main-inside {
+    position: relative;
+    img {
+      position: absolute;
+      top: -10px;
+      left: calc(50% - 90px);
+      width: 230px;
+    }
+    h1 {
+      font-family: "Balsamiq Sans Regular";
+      font-size: 400px;
+      line-height: 360px;
+      font-weight: bold;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 45px;
+      @include stroke(#000, 20px, 10);
+    }
+    h2 {
+      font-family: "Balsamiq Sans Regular";
+      font-size: 72px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 24px;
+      @include stroke(#000, 4px, 1);
+    }
+    p {
+      font-family: "Balsamiq Sans Regular";
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+}
+
+.page-footer {
+  margin-top: auto;
+  .outer-text {
+    margin: 0 auto;
+    max-width: 680px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    a {
+      font-family: "Balsamiq Sans Regular";
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+    }
+  }
+  .social-links {
+    width: 100%;
+    background: #eda00b;
+    padding: 42px 0;
+    .social-links-inside {
+      max-width: 250px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
