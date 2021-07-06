@@ -90,8 +90,8 @@ slider_thumb.onpointerdown = (event) => {
   popup.style.className = "";
   popup.style.position = "absolute";
   popup.style.top = "-120px";
-  popup.style.transform = "scale(1.1)";
-  if (window.matchMedia("(max-width: 375px)").matches) {
+  popup.style.transform = "scale(1.2)";
+  if (window.matchMedia("(max-width: 1245px)").matches) {
     display_popup = true;
     slider.append(popup);
   }
