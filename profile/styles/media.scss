@@ -1,0 +1,254 @@
+@media (max-width: 375px) {
+  .popup-notification {
+    padding: 24px !important;
+    width: 330px;
+    font-size: 14px !important;
+    position: fixed !important;
+  }
+  .center {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  main {
+    .main-inside {
+      .content-block {
+        &:not(:last-of-type) {
+          margin-bottom: 48px;
+        }
+        max-width: 100%;
+        padding: 45px 40px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .upper-row {
+        margin-bottom: 48px;
+        flex-direction: column;
+        .profile-block {
+          .profile {
+            grid-template-columns: 72px 1fr;
+            .profile-photo {
+              height: 72px;
+              width: 72px !important;
+              box-sizing: border-box;
+              padding: 0;
+              &::before {
+                top: calc(50% - 36px);
+                left: calc(50% - 36px);
+                width: 72px;
+                height: 72px;
+              }
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .profile-info {
+              margin-left: 12px;
+              display: flex;
+              align-items: flex-start;
+              justify-content: flex-end;
+              flex-direction: column;
+              .profile-name {
+                font-size: 16px;
+                text-shadow: 0px 2px 0px #000000;
+              }
+              .exit {
+                margin-bottom: 0;
+              }
+            }
+            .profile-stats {
+              margin-top: 25px;
+              margin-left: 0;
+              grid-column-start: 1;
+              grid-column-end: 3;
+              flex-direction: column;
+              align-items: flex-start;
+              .profile-stat {
+                &:not(:last-of-type) {
+                  margin-right: 0;
+                  margin-bottom: 10px;
+                }
+              }
+            }
+          }
+        }
+        .transactions-history {
+          h1 {
+            margin-bottom: 24px;
+          }
+          .transactions-table {
+            font-size: 16px;
+            margin-bottom: 12px;
+            tr {
+              td {
+                white-space: nowrap;
+              }
+              &:not(:last-child) {
+                td {
+                  padding-bottom: 12px;
+                }
+              }
+              td:first-of-type {
+                padding-right: 10px;
+              }
+              td:nth-of-type(2) {
+                padding-right: 20px;
+              }
+              td:nth-of-type(3) {
+                padding-right: 10px;
+              }
+              td:last-of-type {
+                text-align: center;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
+      .full-history-table {
+        margin-bottom: 48px;
+        .full-history-header {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-bottom: 25px;
+          h1 {
+            margin-bottom: 24px;
+            font-weight: normal;
+          }
+          .full-history-exit {
+            display: flex;
+            span {
+              order: 2;
+            }
+            img {
+              width: 35px;
+              height: 35px;
+              order: 1;
+              margin-left: 0;
+              margin-right: 10px;
+            }
+          }
+        }
+        .full-transactions-table {
+          .full-transactions-table-row {
+            &:not(:first-of-type) {
+              padding-top: 12px;
+            }
+            &:not(:last-of-type) {
+              padding-bottom: 12px;
+            }
+            grid-template-columns: 20px 80px 90px 1fr;
+            .transactions-table-item {
+              font-size: 16px;
+              &:first-of-type {
+                margin-right: 20px;
+              }
+              &:nth-of-type(2) {
+                margin-right: 12px;
+              }
+              &:nth-of-type(3) {
+                margin-right: 45px;
+              }
+            }
+            &:first-of-type {
+              .transactions-table-item {
+                &:last-of-type {
+                  display: none;
+                }
+              }
+            }
+            &:not(:first-of-type) {
+              .transactions-table-item {
+                &:last-of-type {
+                  margin-top: 12px;
+                  grid-column-start: 3;
+                  grid-column-end: 5;
+                }
+              }
+            }
+          }
+        }
+      }
+      .sale {
+        display: block;
+        & > img {
+          display: none;
+        }
+        .sale-content {
+          .sale-number {
+            .sale-slider {
+              max-height: 20px;
+              max-width: 100%;
+              min-width: 100%;
+              margin-bottom: 35px;
+              .sale-slider-thumb {
+                width: 65px;
+                height: 60px;
+                font-size: 14px;
+                span {
+                  margin-right: 3px;
+                }
+              }
+            }
+            .sell-block {
+              &:not(:first-of-type) {
+                margin-bottom: 25px;
+              }
+              flex-direction: column;
+              .sell-button {
+                margin-left: 0;
+                margin-top: 24px;
+                align-self: center;
+              }
+              .price-block {
+                max-width: 100%;
+                flex-direction: column;
+                .price {
+                  &:not(:last-of-type) {
+                    margin-bottom: 12px;
+                  }
+                  display: flex;
+                  h1 {
+                    margin-bottom: 0px;
+                    font-size: 16px;
+                  }
+                  p {
+                    margin-left: 12px;
+                    font-size: 16px;
+                  }
+                }
+              }
+            }
+            .custom-price {
+              .price-block {
+                .price {
+                }
+                .custom {
+                  flex-direction: column;
+                  h1 {
+                    margin-bottom: 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .page-footer {
+    .outer-text {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+      a:not(:last-of-type) {
+        margin-bottom: 11px;
+      }
+    }
+    .social-links {
+      padding: 24px 0 !important;
+    }
+  }
+}

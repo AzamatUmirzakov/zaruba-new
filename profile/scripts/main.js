@@ -6,7 +6,7 @@ popup.dataset.animating = false;
 // функция для показа уведомлений
 // если closable = true, то уведомление не закроется само, и нужно будет нажать на X
 // в аргументе content может быть все что угодно, и его можно стилизовать под ваши нужды
-function show_popup(closable, ...content) {
+function show_popup(closable = false, ...content) {
   if (popup.dataset.animating == "false") {
     popup.innerHTML = "";
     popup.append(...content);
@@ -123,3 +123,11 @@ slider_thumb.onmousedown = (event) => {
   };
   document.addEventListener("mouseup", mouse_up_listener);
 };
+
+// адаптивность для всей истории транзакций
+
+if (window.matchMedia("(max-width: 375px").matches) {
+  for (let item of document.querySelectorAll(".header-item-price")) {
+    item.querySelector("p").innerHTML = "Цена";
+  }
+}
