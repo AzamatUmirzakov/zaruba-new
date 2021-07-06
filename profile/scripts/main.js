@@ -72,58 +72,93 @@ let max_margin =
 let right_darkening = slider.querySelector(".right-darkening");
 
 let percentage = 0;
+let t = slider.querySelector(".sale-slider-thumb");
 
-setInterval(() => {
-  max_margin =
-    slider.getBoundingClientRect().right -
-    slider.getBoundingClientRect().left -
-    slider_thumb.offsetWidth;
+t.addEventListener("pointerdown", sliderdown, true);
+t.addEventListener("pointermove", slidermove, true);
+t.addEventListener("pointerup", sliderup, true);
 
-  right_darkening.style.width = `${100 - percentage * 100}%`;
-  slider_thumb.style.left = percentage * max_margin + "px";
-});
-slider_thumb.onpointerdown = (event) => {
-  slider_thumb.setPointerCapture(event.pointerId);
-  let initial = event.clientX - slider_thumb.getBoundingClientRect().left;
-  let display_popup = false;
-  let popup = slider_thumb.cloneNode(true);
-  popup.style.className = "";
-  popup.style.position = "absolute";
-  popup.style.top = "-120px";
-  popup.style.transform = "scale(1.1)";
-  if (window.matchMedia("(max-width: 375px)").matches) {
-    display_popup = true;
-    slider.append(popup);
-  }
-  let move_listener = (event) => {
-    max_margin =
-      slider.getBoundingClientRect().right -
-      slider.getBoundingClientRect().left -
-      slider_thumb.offsetWidth;
-    let relative_to_slider = Math.max(
-      event.clientX - slider.getBoundingClientRect().left - initial,
-      0
-    );
-    relative_to_slider = Math.min(max_margin, relative_to_slider);
-    slider_thumb.style.left = relative_to_slider + "px";
-    percentage = relative_to_slider / max_margin;
-    right_darkening.style.width = max_margin - relative_to_slider + "px";
-    slider_thumb.querySelector(".slider-thumb-value").innerHTML = Math.ceil(
-      percentage * max_value
-    );
-    if (display_popup) {
-      popup.innerHTML = slider_thumb.innerHTML;
-      popup.style.left = relative_to_slider + "px";
+function sliderdown(e) {
+  var t = e.target;
+  t.setPointerCapture(e.pointerId);
+  t.classList.add("active");
+}
+
+function sliderup(e) {
+  var t = e.target;
+  t.classList.remove("active");
+}
+
+function slidermove(e) {
+  var t = e.target;
+
+  if (
+    (t.hasPointerCapture && t.hasPointerCapture(e.pointerId)) ||
+    t.classList.contains("active")
+  ) {
+    var newpos = e.clientX - t.parentElement.offsetLeft - t.offsetWidth / 2;
+    if (newpos < 0) {
+      newpos = 0;
+    } else if (newpos > t.parentElement.offsetWidth - t.offsetWidth) {
+      newpos = t.parentElement.offsetWidth - t.offsetWidth;
     }
-  };
-  document.addEventListener("pointermove", move_listener);
-  let mouse_up_listener = () => {
-    document.removeEventListener("pointerup", move_listener);
-    document.removeEventListener("pointerup", mouse_up_listener);
-    popup.remove();
-  };
-  document.addEventListener("pointerup", mouse_up_listener);
-};
+    t.style.left = newpos + "px";
+    t.querySelector("span").innerHTML = Math.floor((newpos / max_margin) * 100);
+    right_darkening.style.width = max_margin - newpos + "px";
+  }
+}
+
+// setInterval(() => {
+//   max_margin =
+//     slider.getBoundingClientRect().right -
+//     slider.getBoundingClientRect().left -
+//     slider_thumb.offsetWidth;
+
+//   right_darkening.style.width = `${100 - percentage * 100}%`;
+//   slider_thumb.style.left = percentage * max_margin + "px";
+// });
+// slider_thumb.onpointerdown = (event) => {
+//   slider_thumb.setPointerCapture(event.pointerId);
+//   let initial = event.clientX - slider_thumb.getBoundingClientRect().left;
+//   let display_popup = false;
+//   let popup = slider_thumb.cloneNode(true);
+//   popup.style.className = "";
+//   popup.style.position = "absolute";
+//   popup.style.top = "-120px";
+//   popup.style.transform = "scale(1.1)";
+//   if (window.matchMedia("(max-width: 375px)").matches) {
+//     display_popup = true;
+//     slider.append(popup);
+//   }
+//   let move_listener = (event) => {
+//     max_margin =
+//       slider.getBoundingClientRect().right -
+//       slider.getBoundingClientRect().left -
+//       slider_thumb.offsetWidth;
+//     let relative_to_slider = Math.max(
+//       event.clientX - slider.getBoundingClientRect().left - initial,
+//       0
+//     );
+//     relative_to_slider = Math.min(max_margin, relative_to_slider);
+//     slider_thumb.style.left = relative_to_slider + "px";
+//     percentage = relative_to_slider / max_margin;
+//     right_darkening.style.width = max_margin - relative_to_slider + "px";
+//     slider_thumb.querySelector(".slider-thumb-value").innerHTML = Math.ceil(
+//       percentage * max_value
+//     );
+//     if (display_popup) {
+//       popup.innerHTML = slider_thumb.innerHTML;
+//       popup.style.left = relative_to_slider + "px";
+//     }
+//   };
+//   document.addEventListener("pointermove", move_listener);
+//   let mouse_up_listener = () => {
+//     document.removeEventListener("pointerup", move_listener);
+//     document.removeEventListener("pointerup", mouse_up_listener);
+//     popup.remove();
+//   };
+//   document.addEventListener("pointerup", mouse_up_listener);
+// };
 
 // адаптивность для всей истории транзакций
 
