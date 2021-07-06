@@ -212,7 +212,7 @@ main .forgot-password-form {
   justify-content: space-between;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 1245px) {
   .center {
     box-sizing: border-box;
     width: 100%;
