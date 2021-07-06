@@ -82,7 +82,7 @@ setInterval(() => {
   right_darkening.style.width = `${100 - percentage * 100}%`;
   slider_thumb.style.left = percentage * max_margin + "px";
 });
-slider_thumb.onmousedown = (event) => {
+slider_thumb.onclick = (event) => {
   let initial = event.clientX - slider_thumb.getBoundingClientRect().left;
   let display_popup = false;
   let popup = slider_thumb.cloneNode(true);
