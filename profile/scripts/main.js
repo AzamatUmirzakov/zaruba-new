@@ -115,13 +115,13 @@ slider_thumb.onpointerdown = (event) => {
       popup.style.left = relative_to_slider + "px";
     }
   };
-  document.addEventListener("mousemove", move_listener);
+  document.addEventListener("pointermove", move_listener);
   let mouse_up_listener = () => {
-    document.removeEventListener("mousemove", move_listener);
-    document.removeEventListener("mouseup", mouse_up_listener);
+    document.removeEventListener("pointerup", move_listener);
+    document.removeEventListener("pointerup", mouse_up_listener);
     popup.remove();
   };
-  document.addEventListener("mouseup", mouse_up_listener);
+  document.addEventListener("pointerup", mouse_up_listener);
 };
 
 // адаптивность для всей истории транзакций
