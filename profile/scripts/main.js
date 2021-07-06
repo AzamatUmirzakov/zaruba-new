@@ -79,34 +79,32 @@ t.addEventListener("pointermove", slidermove, true);
 t.addEventListener("pointerup", sliderup, true);
 
 function sliderdown(e) {
-  let t = e.target;
+  var t = e.target;
   t.setPointerCapture(e.pointerId);
   t.classList.add("active");
 }
 
 function sliderup(e) {
-  let t = e.target;
+  var t = e.target;
   t.classList.remove("active");
 }
 
 function slidermove(e) {
-  let t = e.target;
+  var t = e.target;
 
   if (
     (t.hasPointerCapture && t.hasPointerCapture(e.pointerId)) ||
     t.classList.contains("active")
   ) {
-    let newpos = e.clientX - t.parentElement.offsetLeft - t.offsetWidth / 2;
+    var newpos = e.clientX - t.parentElement.offsetLeft - t.offsetWidth / 2;
     if (newpos < 0) {
       newpos = 0;
     } else if (newpos > t.parentElement.offsetWidth - t.offsetWidth) {
       newpos = t.parentElement.offsetWidth - t.offsetWidth;
     }
     t.style.left = newpos + "px";
-    t.querySelector("span").innerHTML = Math.round((newpos / max_margin) * 100);
-    right_darkening.style.width = `${Math.round(
-      100 - (newpos / max_margin) * 100
-    )}%`;
+    t.innerHTML = Math.floor((newpos / max_margin) * 100) + "Z";
+    right_darkening.style.width = max_margin - newpos + "px";
   }
 }
 
