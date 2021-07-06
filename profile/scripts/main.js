@@ -83,6 +83,7 @@ setInterval(() => {
   slider_thumb.style.left = percentage * max_margin + "px";
 });
 slider_thumb.onpointerdown = (event) => {
+  slider_thumb.setPointerCapture(event.pointerId);
   let initial = event.clientX - slider_thumb.getBoundingClientRect().left;
   let display_popup = false;
   let popup = slider_thumb.cloneNode(true);
