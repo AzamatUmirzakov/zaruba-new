@@ -103,7 +103,7 @@ function slidermove(e) {
       newpos = t.parentElement.offsetWidth - t.offsetWidth;
     }
     t.style.left = newpos + "px";
-    t.querySelector("span").innerHTML = Math.floor((newpos / max_margin) * 100);
+    t.innerHTML = Math.floor((newpos / max_margin) * 100) + "Z";
     right_darkening.style.width = max_margin - newpos + "px";
   }
 }
