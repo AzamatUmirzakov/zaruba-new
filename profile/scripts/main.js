@@ -104,6 +104,9 @@ function slidermove(e) {
     }
     t.style.left = newpos + "px";
     t.querySelector("span").innerHTML = Math.round((newpos / max_margin) * 100);
+    right_darkening.style.width = `${Math.round(
+      100 - (newpos / max_margin) * 100
+    )}%`;
   }
 }
 
