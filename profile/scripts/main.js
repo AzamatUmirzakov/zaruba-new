@@ -118,7 +118,7 @@ slider_thumb.onpointerdown = (event) => {
   };
   document.addEventListener("pointermove", move_listener);
   let mouse_up_listener = () => {
-    document.removeEventListener("pointerup", move_listener);
+    document.removeEventListener("pointermove", move_listener);
     document.removeEventListener("pointerup", mouse_up_listener);
     popup.remove();
   };
