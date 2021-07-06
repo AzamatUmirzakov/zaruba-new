@@ -183,6 +183,7 @@
               max-width: 100%;
               min-width: 100%;
               margin-bottom: 35px;
+              box-shadow: none;
               .sale-slider-thumb {
                 width: 65px;
                 height: 60px;
@@ -223,8 +224,6 @@
             }
             .custom-price {
               .price-block {
-                .price {
-                }
                 .custom {
                   flex-direction: column;
                   h1 {
