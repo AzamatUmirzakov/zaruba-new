@@ -120,11 +120,6 @@ main .main-inside p {
 }
 
 @media (max-width: 1245px) {
-  body {
-    background-image: url("../assets/background-adaptive.svg");
-    background-position: center center;
-  }
-
   .center {
     box-sizing: border-box;
     width: 100%;
@@ -169,6 +164,12 @@ main .main-inside p {
   }
   .page-footer .social-links {
     padding: 24px 0 !important;
+  }
+}
+@media (max-width: 375px) {
+  body {
+    background-image: url("../assets/background-adaptive.svg");
+    background-position: center center;
   }
 }
 
